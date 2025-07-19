@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name • Portfolio</title>
+
+  <!-- Retro pixel font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Your main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Header tweaks -->
+  <style>
+    header {
+      background: var(--card);
+      border: 2px solid var(--fg);
+      /* crisper, smaller glow */
+      box-shadow: 0 0 2px var(--fg);
+      padding: 1rem 0;       /* less vertical space */
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      text-shadow: 0 0 2px var(--fg);
+    }
+    header p {
+      margin: 0.25rem 0 0;
+      font-size: 1rem;
+      text-shadow: none;
+      color: var(--fg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Your Name</h1>
+      <p>Art Portfolio</p>
+    </header>
+
+    <!-- Gallery -->
+    <main class="gallery">
+      <a href="detail1.html" class="thumb">
+        <video
+          width="200"
+          height="200"
+          muted autoplay loop playsinline
+          preload="metadata"
+        >
+          <source src="videos/CreaturePod_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>Art Piece 1</span>
+      </a>
+      <!-- …more items… -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Your Name • <a href="mailto:you@example.com">you@example.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>

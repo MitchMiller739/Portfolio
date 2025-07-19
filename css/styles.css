@@ -1,0 +1,147 @@
+﻿:root {
+    --bg: #000;
+    --fg: #0f0;
+    --card: #111;
+    --scan: rgba(0,255,0,0.05);
+}
+
+/* Base reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    animation: flicker 0.15s infinite alternate-reverse;
+}
+
+    /* Scanlines */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: repeating-linear-gradient( to bottom, transparent, transparent 1px, var(--scan) 2px );
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+/* Flicker */
+@keyframes flicker {
+    0%,100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.98;
+    }
+}
+
+/* Container centering */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Panels */
+header, footer, .detail, .thumb {
+    background: var(--card);
+    border: 3px solid var(--fg);
+    box-shadow: 0 0 4px var(--fg);
+}
+
+header {
+    /* reduce the big container glow */
+    background: var(--card);
+    border: 2px solid var(--fg);
+    /* lighter, crisper glow instead of a fuzzy halo */
+    box-shadow: 0 0 2px var(--fg);
+    /* less vertical padding so name & tagline sit closer */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+    header h1 {
+        margin: 0; /* kill extra spacing */
+        font-size: 2rem; /* tweak to taste */
+        /* subtle single‑layer glow */
+        text-shadow: 0 0 2px var(--fg);
+    }
+
+    header p {
+        margin: 0.25rem 0 0; /* small gap above */
+        font-size: 1rem; /* smaller than the name */
+        color: var(--fg);
+        text-shadow: none; /* no extra glow on the tagline */
+    }
+
+/* Gallery grid */
+.gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.thumb {
+    overflow: hidden;
+    text-align: center;
+}
+
+    .thumb span {
+        display: block;
+        padding: .5rem;
+        color: var(--fg);
+        text-shadow: 0 0 2px var(--fg);
+    }
+
+    .thumb img,
+    .thumb video {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        object-fit: cover; /* crop/scale if needed */
+    }
+
+/* Detail */
+.detail {
+    padding: 1rem 0;
+}
+
+    .detail h2 {
+        text-align: center;
+        font-size: 1.4rem;
+        text-shadow: 0 0 2px var(--fg),0 0 4px var(--fg);
+    }
+
+    .detail img {
+        display: block;
+        max-width: 100%;
+        margin: 1rem auto;
+        image-rendering: pixelated;
+    }
+
+.back-link {
+    display: block; /* make it take its own line */
+    margin: 1.5rem auto; /* vertically separate, auto‑center horizontally */
+    width: max-content; /* shrink‑wrap to text width */
+    text-align: center; /* center text in that box */
+    color: var(--fg); /* keep your default green */
+    text-shadow: 0 0 2px var(--fg);
+    transition: color .2s, text-shadow .2s;
+}
+
+    .back-link:hover {
+        color: #fff; /* brighten to white on hover */
+        text-shadow: 0 0 4px #fff;
+    }
