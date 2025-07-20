@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\icons"
+    "\\icons",
+    "\\images",
+    "\\videos"
   ],
-  "SelectedNode": "\\icons\\reddit.svg",
+  "SelectedNode": "\\videos\\Crawler_Showcase.mp4",
   "PreviewInSolutionExplorer": false
 }

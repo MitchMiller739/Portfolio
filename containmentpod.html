@@ -1,52 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CONTAINMENT POD • Mitchell Miller</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juggernaugt Enemy • Mitchell Miller</title>
 
-    <!-- Retro pixel font -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-          rel="stylesheet" />
+  <!-- Retro pixel font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Body font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 
-    <!-- Your existing CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Page‑specific overrides -->
+  <style>
+    /* 2×2 responsive grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    /* Uniform 16:9 panels */
+    .thumb {
+      aspect-ratio: 16/9;
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--fg);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .thumb img,
+    .thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--bg);
+    }
+    .thumb span {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      padding: 0.5rem 0;
+      text-align: center;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+
+    /* Description panel */
+    .description {
+      background: var(--card);
+      border: 1px solid var(--fg);
+      box-shadow: 0 0 6px var(--fg-glow);
+      border-radius: 4px;
+      padding: 1rem;
+      color: var(--fg);
+      margin-top: 2rem;
+    }
+    .description h2 {
+      font-family: 'Press Start 2P', monospace;
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+    .description p {
+      font-family: 'Fira Mono', monospace;
+      line-height: 1.4;
+    }
+
+    /* Back‑button container */
+    .back-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    /* Neon pixel button */
+    .back-btn {
+      display: inline-block;
+      padding: .75rem 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      background: var(--card);
+      color: var(--fg);
+      border: 1px solid var(--fg);
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 0 4px var(--fg-glow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .back-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 12px var(--fg-glow);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
 
-        <!-- Header (same as index.html) -->
-        <header>
-            <h1>Mitchell Miller</h1>
-            <p>Art Portfolio</p>
-        </header>
+    <!-- Header -->
+    <header>
+      <h1>CONTAINMENT POD</h1>
+    </header>
 
-        <!-- Detail view -->
-        <main class="detail">
-            <!-- Title -->
-            <h2>CONTAINMENT POD</h2>
+    <!-- Description -->
+    <section class="description">
+      <h2>Containment Pod Details</h2>
+      <p>
+         This giant test tube is a spawn/starting point for the Juggernaugt enemy where it is contained until the player approaches. 
+         It is designed to be a menacing presence in the game, towering over the player and serving as a reminder of the threat that lies within. 
+         The pod is heavily reinforced and features glowing energy fields that pulse ominously, hinting at the power contained inside. The design is 
+         inspired by classic sci-fi aesthetics, with a retro-futuristic look that fits perfectly into the game's overall theme.
+      </p>
+    </section>
 
-            <!-- Full‑size image: make sure this exact file exists!
-                 e.g. portfolio/images/art1-full.jpg -->
-            <img src="images/JugScreenshot.png"
-                 alt="Art Piece 1">
+    <!-- 2×2 Media gallery -->
+    <section class="gallery">
+      <!-- Video showcase -->
+      <div class="thumb">
+        <video
+          muted autoplay loop playsinline
+          preload="metadata"
+          poster="images/crawler-thumb.jpg"
+          controls
+        >
+          <source src="videos/CreaturePod_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>MiniGun-Drone Showcase</span>
+      </div>
 
-            <!-- Your description -->
-            <p>
-                This is a containment pod with the juggernaut creature inside. The pod will be used as a place for the enemy to spawn or "Activate"
-            </p>
+      <!-- Front view -->
+      <div class="thumb">
+        <img src="images/drone1.png" alt="Drone front view">
+        <span>Front View</span>
+      </div>
 
-            <!-- Back link -->
-            <p>
-                <a href="index.html" class="back-link">Back to gallery</a>
-            </p>
-        </main>
+      <!-- Side view -->
+      <div class="thumb">
+        <img src="images/drone2.png" alt="Drone side view">
+        <span>Side View</span>
+      </div>
 
-        <!-- Footer -->
-        <footer>
-            &copy; 2025 Mitchell Miller <a href="mailto:ChronoHellStudio@gmail.com">ChronoHellStudio@gmail.com</a>
-        </footer>
+      <!-- Top view -->
+      <div class="thumb">
+        <img src="images/drone3.png" alt="Drone top view">
+        <span>Top View</span>
+      </div>
+    </section>
 
+    <!-- Back to gallery button -->
+    <div class="back-container">
+      <a href="index.html" class="back-btn">← Back to Gallery</a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Mitchell Miller • <a href="mailto:chronohellstudio@gmail.com">chronohellstudio@gmail.com</a>
+    </footer>
+  </div>
 </body>
 </html>

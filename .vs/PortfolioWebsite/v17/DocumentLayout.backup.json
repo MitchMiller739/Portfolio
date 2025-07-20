@@ -33,22 +33,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 313,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 290,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "juggernaugt.html",
-              "DocumentMoniker": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\juggernaugt.html",
-              "RelativeDocumentMoniker": "juggernaugt.html",
-              "ToolTip": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\juggernaugt.html",
-              "RelativeToolTip": "juggernaugt.html",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAJkAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-20T01:08:25.559Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -59,8 +46,7 @@
               "RelativeToolTip": "crawler.html",
               "ViewState": "AgIAAHUAAAAAAAAAAAAuwKoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-19T22:53:49.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-19T22:53:49.371Z"
             },
             {
               "$type": "Document",
@@ -70,10 +56,22 @@
               "RelativeDocumentMoniker": "css\\styles.css",
               "ToolTip": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\css\\styles.css",
               "RelativeToolTip": "css\\styles.css",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAAAHsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAowJQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-07-19T21:43:16.714Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "juggernaugt.html",
+              "DocumentMoniker": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\juggernaugt.html",
+              "RelativeDocumentMoniker": "juggernaugt.html",
+              "ToolTip": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\juggernaugt.html",
+              "RelativeToolTip": "juggernaugt.html",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAJoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-07-20T01:08:25.559Z"
             },
             {
               "$type": "Document",
@@ -85,13 +83,12 @@
               "RelativeToolTip": "containmentpod.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-19T21:43:13.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-19T21:43:13.923Z"
             }
           ]
         },
         {
-          "DockedWidth": 333,
+          "DockedWidth": 356,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -102,10 +99,9 @@
               "RelativeDocumentMoniker": "minigundrone.html",
               "ToolTip": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\minigundrone.html",
               "RelativeToolTip": "minigundrone.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowIwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-20T01:19:58.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-20T01:19:58.815Z"
             },
             {
               "$type": "Document",
@@ -115,7 +111,7 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\mitch\\Documents\\GitHub\\PortfolioWebsite\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHQAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-07-19T21:43:11.72Z",
               "EditorCaption": ""
