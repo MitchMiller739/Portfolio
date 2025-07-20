@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name � Portfolio</title>
+  <title>Mitchell Miller • Portfolio</title>
 
-  <!-- Retro pixel font -->
+  <!-- Retro pixel font for headings & captions -->
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Monospaced body font for better readability -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+    rel="stylesheet"
+  />
+
   <!-- Your main stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Header tweaks -->
+  <!-- Layout & header overrides -->
   <style>
+    /* = Header tweaks (as before) = */
     header {
       background: var(--card);
       border: 2px solid var(--fg);
-      /* crisper, smaller glow */
       box-shadow: 0 0 2px var(--fg);
-      padding: 1rem 0;       /* less vertical space */
+      padding: 1rem 0;
       text-align: center;
     }
     header h1 {
@@ -34,37 +39,159 @@
       text-shadow: none;
       color: var(--fg);
     }
+
+    /* = Three‑column gallery + bio = */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin: 2rem 0;
+    }
+
+    /* = Bio panel styling = */
+    .bio {
+      background: var(--card);
+      border: 3px solid var(--fg);
+      box-shadow: 0 0 4px var(--fg);
+      padding: 1rem;
+      color: var(--fg);
+      text-align: left;
+      font-size: .7rem;
+      line-height: 1.4;
+    }
+    .bio h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: var(--fg);
+      /* 4 shadows to make a 1px black outline */
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+    }
+    .bio p {
+      margin: 0.5rem 0;
+      color: var(--fg);
+      /* 4 shadows to make a 1px black outline */
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+    }
+
+    .gallery .jugger {
+    /* put this item in column 3, row will auto‑flow to the next one */
+    grid-column: 3;
+    /* (optionally) you can force grid-row: 2; but it’s not strictly necessary */
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Header -->
-    <header>
-      <h1>Your Name</h1>
-      <p>Art Portfolio</p>
-    </header>
+<header>
+  <div class="header-left">
+    <h1>Mitchell Miller</h1>
+    <p>Art Portfolio</p>
+  </div>
+  <div class="header-right socials">
+    <a
+      href="https://www.reddit.com/user/YourUsername"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-icon reddit"
+    >
+      <img src="icons/reddit.svg" alt="Reddit" />
+    </a>
+    <a
+      href="https://github.com/YourUsername"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-icon github"
+    >
+      <img src="icons/github.svg" alt="GitHub" />
+    </a>
+    <!-- add more as needed -->
+  </div>
+</header>
 
-    <!-- Gallery -->
+    <!-- Three‑column Gallery + Bio -->
     <main class="gallery">
-      <a href="detail1.html" class="thumb">
+      <!-- Left: Creature Pod -->
+      <a href="containmentpod.html" class="thumb">
         <video
-          width="200"
-          height="200"
+          width="200" height="200"
           muted autoplay loop playsinline
           preload="metadata"
         >
           <source src="videos/CreaturePod_Showcase.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
-        <span>Art Piece�1</span>
+        <span>Creature Pod</span>
       </a>
-      <!-- �more items� -->
+
+        <div class="bio">
+          <h2>About Me</h2>
+          <p>
+            I’m Mitchell Miller, a 3D artist and Unity developer. I build low‑poly creatures and bots—modeling in Blender, grime‑texturing in Substance Painter, and wiring up their AI in C#.  
+          </p>
+          <p>
+            Right now, most of my time goes toward my solo project Chronohell — a retro boomer‑shooter where I craft enemy AI, design encounters, and cook up neon‑soaked shaders to bring a retro‑futuristic world to life.
+            On this site, you’ll find demos for my Creature Pod, Crawler, MiniGun Drone, and Juggernaut, plus a handful of quick tech experiments.
+          </p>
+        </div>
+
+    
+
+      <!-- Right: Crawler -->
+      <a href="crawler.html" class="thumb">
+        <video
+          width="200" height="200"
+          muted autoplay loop playsinline
+          preload="metadata"
+        >
+          <source src="videos/Crawler_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>Crawler</span>
+      </a>
+
+            <!-- minigundrone -->
+      <a href="minigundrone.html" class="thumb">
+        <video
+          width="200" height="200"
+          muted autoplay loop playsinline
+          preload="metadata"
+        >
+          <source src="videos/MiniGunDrone_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>MiniGunDrone</span>
+      </a>
+
+            <!-- Juggernaugt -->
+      <a href="juggernaugt.html" class="thumb jugger">
+        <video
+          width="200" height="200"
+          muted autoplay loop playsinline
+          preload="metadata"
+        >
+          <source src="videos/Juggernaugt_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>Juggernaugt</span>
+      </a>
+
     </main>
 
     <!-- Footer -->
     <footer>
-      &copy;�2025�Your Name���<a href="mailto:you@example.com">you@example.com</a>
+      &copy; 2025 Mitchell Miller • <a href="mailto:chronohellstudio@gmail.com">chronohellstudio@gmail.com</a>
     </footer>
 
   </div>

@@ -1,147 +1,301 @@
-﻿:root {
-    --bg: #000;
-    --fg: #0f0;
-    --card: #111;
-    --scan: rgba(0,255,0,0.05);
+﻿/* ================================================
+   VARIABLES & RESET
+   ================================================ */
+:root {
+  --bg:        #000;               /* black screen */
+  --fg:        #0f0;               /* green phosphor */
+  --fg-glow:   rgba(0,255,0,0.2);  /* softer neon glow */
+  --card:      #0a1008;               /* panel background */
+  --scan:      rgba(0,255,0,0.4); /* scanline color */
 }
 
-/* Base reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* ================================================
+   BODY, FLICKER & SCANLINES
+   ================================================ */
+/* BODY BACKGROUND + GRID (in css/styles.css) */
 body {
-    font-family: 'Press Start 2P', monospace;
-    background: var(--bg);
-    color: var(--fg);
-    min-height: 100vh;
-    animation: flicker 0.15s infinite alternate-reverse;
+  position: relative;       /* establish stacking context */
+  background: var(--bg);
+  animation:
+    gridScroll 20s linear infinite,   /* your diagonal scroll */
+    bgPulse   30s ease-in-out infinite,
+    flicker   0.15s infinite alternate-reverse;
 }
 
-    /* Scanlines */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: repeating-linear-gradient( to bottom, transparent, transparent 1px, var(--scan) 2px );
-        pointer-events: none;
-        z-index: 9999;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    repeating-linear-gradient(to bottom,  transparent, transparent 2px, var(--scan) 4px),
+    repeating-linear-gradient(90deg,        transparent, transparent 2px, var(--scan) 4px);
+  background-size: 40px 40px;
+  pointer-events: none;
 
-/* Flicker */
-@keyframes flicker {
-    0%,100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.98;
-    }
+  /* bring it above the plain background */
+  z-index: 0;      
+  opacity: 0.2;   
 }
 
-/* Container centering */
+/* make your container sit above that grid */
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
+  position: relative;
+  z-index: 1;
+  width: 95%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Panels */
-header, footer, .detail, .thumb {
-    background: var(--card);
-    border: 3px solid var(--fg);
-    box-shadow: 0 0 4px var(--fg);
+/* your gridScroll keyframes (unchanged) */
+@keyframes gridScroll {
+  from { background-position: 0   0; }
+  to   { background-position: 40px 40px; }
+}
+
+
+/* (Optional) a subtle pulsing tint on the body */
+body {
+  animation: bgPulse 30s ease-in-out infinite, flicker 0.15s infinite alternate-reverse;
+}
+@keyframes bgPulse {
+  0%,100% { background-color: #000; }
+  50%     { background-color: #040004; }
+}
+
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.995; }
+}
+
+/* ================================================
+   CONTAINER
+   ================================================ */
+.container {
+  width: 95%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ================================================
+   HEADER & FOOTER PANELS
+   ================================================ */
+header,
+footer,
+.detail,
+.thumb,
+.bio {
+  background: var(--card);
+  border: 1px solid var(--fg);
+  border-radius: 4px;
+  box-shadow: 0 0 6px var(--fg-glow);
+  padding: 1rem;
+  transition: transform .2s, box-shadow .2s;
+}
+
+/* Header specific */
+header {
+  box-shadow: 0 0 2px var(--fg);
+  text-align: center;
+}
+header h1 {
+  font-family: 'Press Start 2P', monospace;
+  margin: 0;
+  font-size: 2rem;
+  color: var(--fg);
+    text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+
+}
+header p {
+  font-family: 'Press Start 2P', monospace;
+  margin: .25rem 0 0;
+  font-size: 1rem;
+  color: var(--fg);
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
 }
 
 header {
-    /* reduce the big container glow */
-    background: var(--card);
-    border: 2px solid var(--fg);
-    /* lighter, crisper glow instead of a fuzzy halo */
-    box-shadow: 0 0 2px var(--fg);
-    /* less vertical padding so name & tagline sit closer */
-    padding: 1rem 0;
-    text-align: center;
+  display: flex;                    /* new */
+  justify-content: space-between;   /* new */
+  align-items: center;              /* new */
+  background: var(--card);          /* keep */
+  border: 1px solid var(--fg);      /* keep */
+  box-shadow: 0 0 2px var(--fg);    /* keep */
+  padding: 1rem;  
+  position: relative;
+  text-align: center;/* keep */
+  /* remove text-align: center; */
 }
 
-    header h1 {
-        margin: 0; /* kill extra spacing */
-        font-size: 2rem; /* tweak to taste */
-        /* subtle single‑layer glow */
-        text-shadow: 0 0 2px var(--fg);
-    }
+/* wrap your H1+P in a .header-left container */
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-    header p {
-        margin: 0.25rem 0 0; /* small gap above */
-        font-size: 1rem; /* smaller than the name */
-        color: var(--fg);
-        text-shadow: none; /* no extra glow on the tagline */
-    }
+/* the socials go in .header-right.socials */
+.header-right.socials {
+  display: flex;
+  gap: 0.75rem;
+}
 
-/* Gallery grid */
+/* tweak your icon links */
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
+  transition: transform .2s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.2);
+}
+
+/* Footer specific */
+footer {
+  text-align: center;
+  box-shadow: 0 0 2px var(--fg);
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-icon.reddit img{
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+    transition:transform .2s ease;
+}
+
+.social-icon.reddir:hover img {
+    transform: scale(1.2);
+}
+
+/* ================================================
+   THREE‑COLUMN LAYOUT: GALLERY + BIO
+   ================================================ */
 .gallery {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-    margin: 2rem 0;
-    text-align: center;
+  display: grid;
+  /* three columns, each at least 250px wide, then share remaining space */
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem 0;
 }
 
+/* BIO panel */
+.bio {
+  color: var(--fg);
+  text-align: left;
+}
+.bio h2 {
+  font-family: 'Press Start 2P', monospace;
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  text-shadow: 0 0 2px var(--fg);
+}
+.bio p {
+  margin: .5rem 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* ================================================
+   THUMBNAILS
+   ================================================ */
 .thumb {
-    overflow: hidden;
-    text-align: center;
+  text-align: center;
+}
+.thumb img,
+.thumb video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.thumb span {
+  display: block;
+  margin-top: .5rem;
+  font-family: 'Press Start 2P', monospace;
+  color: var(--fg);
+  text-shadow: 0 0 2px var(--fg);
 }
 
-    .thumb span {
-        display: block;
-        padding: .5rem;
-        color: var(--fg);
-        text-shadow: 0 0 2px var(--fg);
-    }
+/* Hover effect */
+.thumb:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 12px var(--fg-glow);
+}
 
-    .thumb img,
-    .thumb video {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-        object-fit: cover; /* crop/scale if needed */
-    }
-
-/* Detail */
+/* ================================================
+   DETAIL PAGES
+   ================================================ */
 .detail {
-    padding: 1rem 0;
+  padding: 1rem 0;
+}
+.detail h2 {
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  font-size: 1.4rem;
+  text-shadow: 0 0 2px var(--fg), 0 0 4px var(--fg);
+}
+.detail img,
+.detail video {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto;
+  image-rendering: pixelated;
 }
 
-    .detail h2 {
-        text-align: center;
-        font-size: 1.4rem;
-        text-shadow: 0 0 2px var(--fg),0 0 4px var(--fg);
-    }
-
-    .detail img {
-        display: block;
-        max-width: 100%;
-        margin: 1rem auto;
-        image-rendering: pixelated;
-    }
-
+/* Back link */
 .back-link {
-    display: block; /* make it take its own line */
-    margin: 1.5rem auto; /* vertically separate, auto‑center horizontally */
-    width: max-content; /* shrink‑wrap to text width */
-    text-align: center; /* center text in that box */
-    color: var(--fg); /* keep your default green */
-    text-shadow: 0 0 2px var(--fg);
-    transition: color .2s, text-shadow .2s;
+  display: block;
+  margin: 1.5rem auto;
+  width: max-content;
+  text-align: center;
+  color: var(--fg);
+  text-shadow: 0 0 2px var(--fg);
+  transition: color .2s, text-shadow .2s;
+}
+.back-link:hover {
+  color: #fff;
+  text-shadow: 0 0 4px #fff;
 }
 
-    .back-link:hover {
-        color: #fff; /* brighten to white on hover */
-        text-shadow: 0 0 4px #fff;
-    }
+a:link {
+  color: red;
+  text-decoration: none;
+  transition: color .2s, text-shadow .2s;
+}
+
+a:link:visited {
+  color: purple;
+  text-decoration: none;
+  transition: color .2s, text-shadow .2s;
+}
+
+a:link:hover {
+  color: #8c0000;
+  text-shadow: 0 0 4px #8c0000;
+}
+
+

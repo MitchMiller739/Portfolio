@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juggernaugt Enemy • Mitchell Miller</title>
+
+  <!-- Retro pixel font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Body font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Page‑specific overrides -->
+  <style>
+    /* 2×2 responsive grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    /* Uniform 16:9 panels */
+    .thumb {
+      aspect-ratio: 16/9;
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--fg);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .thumb img,
+    .thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--bg);
+    }
+    .thumb span {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      padding: 0.5rem 0;
+      text-align: center;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+
+    /* Description panel */
+    .description {
+      background: var(--card);
+      border: 1px solid var(--fg);
+      box-shadow: 0 0 6px var(--fg-glow);
+      border-radius: 4px;
+      padding: 1rem;
+      color: var(--fg);
+      margin-top: 2rem;
+    }
+    .description h2 {
+      font-family: 'Press Start 2P', monospace;
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+    .description p {
+      font-family: 'Fira Mono', monospace;
+      line-height: 1.4;
+    }
+
+    /* Back‑button container */
+    .back-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    /* Neon pixel button */
+    .back-btn {
+      display: inline-block;
+      padding: .75rem 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      background: var(--card);
+      color: var(--fg);
+      border: 1px solid var(--fg);
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 0 4px var(--fg-glow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .back-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 12px var(--fg-glow);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>MINIGUN DRONE</h1>
+    </header>
+
+    <!-- Description -->
+    <section class="description">
+      <h2>Minigun-Drone Enemy Details</h2>
+      <p>
+        A compact hover‑bot bristling with twin rotary barrels, 
+        the MiniGun Drone strafes above the battlefield and hammers 
+        its target with high‑velocity suppressive fire. It locks on 
+        to the player, sweeps through tight arcs, and unleashes a 
+        4‑second burst of tracer rounds—its spinning barrels glowing 
+        red‑hot—before entering a 5‑second spin‑down cooldown. Agile 
+        and precise, this drone can weave around obstacles to maintain 
+        line‑of‑sight, forcing you to dodge, duck behind cover, or risk 
+        getting shredded in mid‑air.
+      </p>
+    </section>
+
+    <!-- 2×2 Media gallery -->
+    <section class="gallery">
+      <!-- Video showcase -->
+      <div class="thumb">
+        <video
+          muted autoplay loop playsinline
+          preload="metadata"
+          poster="images/crawler-thumb.jpg"
+          controls
+        >
+          <source src="videos/MiniGunDrone_Showcase.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <span>MiniGun-Drone Showcase</span>
+      </div>
+
+      <!-- Front view -->
+      <div class="thumb">
+        <img src="images/drone1.png" alt="Drone front view">
+        <span>Front View</span>
+      </div>
+
+      <!-- Side view -->
+      <div class="thumb">
+        <img src="images/drone2.png" alt="Drone side view">
+        <span>Side View</span>
+      </div>
+
+      <!-- Top view -->
+      <div class="thumb">
+        <img src="images/drone3.png" alt="Drone top view">
+        <span>Top View</span>
+      </div>
+    </section>
+
+    <!-- Back to gallery button -->
+    <div class="back-container">
+      <a href="index.html" class="back-btn">← Back to Gallery</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Mitchell Miller • <a href="mailto:chronohellstudio@gmail.com">chronohellstudio@gmail.com</a>
+    </footer>
+  </div>
+</body>
+</html>
